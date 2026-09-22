@@ -107,11 +107,11 @@ li.has-dropdown:hover .dropdown, li.has-dropdown.open .dropdown{
 .dropdown a:hover{background:var(--paper); color:var(--navy);}
 
 .nav-actions{display:flex; align-items:center; gap:6px;}
-.header-logo-right{
+.header-logo-left{
   display:flex; align-items:center; justify-content:center;
-  width:44px; height:44px; flex-shrink:0; margin-left:4px;
+  width:44px; height:44px; flex-shrink:0;
 }
-.header-logo-right img{width:100%; height:100%; object-fit:contain;}
+.header-logo-left img{width:100%; height:100%; object-fit:contain;}
 .icon-btn{
   width:38px; height:38px; border-radius:50%; border:none; background:transparent;
   display:flex; align-items:center; justify-content:center; color:var(--navy);
@@ -366,7 +366,7 @@ footer ul li a:hover{color:var(--gold-light);}
   .brand-text .name{font-size:15px;}
   .brand-text .sub{display:none;}
   .brand-mark{width:52px; height:52px;}
-  .header-logo-right{display:none;}
+  .header-logo-left{display:none;}
   .min-grid{grid-template-columns:1fr 1fr;}
   .foot-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
