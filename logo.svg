@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Lord's Last Call Church</title>
+  <desc id="desc">A navy circular mark with an open Bible and a gold cross</desc>
+  <circle cx="50" cy="50" r="48" fill="#16324F"/>
+  <circle cx="50" cy="50" r="43" fill="none" stroke="#E4A85A" stroke-width="2"/>
+  <path d="M22 38c9-7 19-7 28 0v35c-9-7-19-7-28 0z" fill="#F4EBD8"/>
+  <path d="M78 38c-9-7-19-7-28 0v35c9-7 19-7 28 0z" fill="#F8F1E1"/>
+  <path d="M50 38v35" stroke="#C9B27E" stroke-width="3"/>
+  <path d="M29 45c7-3 14-3 21 0M29 54c7-3 14-3 21 0M29 63c7-3 14-3 21 0M50 45c7-3 14-3 21 0M50 54c7-3 14-3 21 0M50 63c7-3 14-3 21 0" fill="none" stroke="#D8C79E" stroke-width="1.4"/>
+  <path d="M50 12v22M42 20h16" stroke="#E4A85A" stroke-width="5" stroke-linecap="round"/>
+</svg>
