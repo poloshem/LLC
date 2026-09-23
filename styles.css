@@ -52,11 +52,16 @@ header{
 }
 .nav-row{
   display:flex; align-items:center; justify-content:space-between;
-  padding:14px 28px; max-width:1180px; margin:0 auto;
+  padding:14px 8px; max-width:1180px; margin:0 auto;
   gap:20px;
 }
-.brand{display:flex; align-items:center; gap:14px; min-width:0;}
+.nav-row > .brand{order:1;}
+.nav-row > nav.primary{order:2;}
+.nav-row > .nav-actions{order:3;}
+.brand{display:flex; flex-direction:column; align-items:flex-start; gap:2px; min-width:0;}
+.brand-text{order:1;}
 .brand-mark{
+  order:2;
   width:156px; height:156px;
   display:flex; align-items:center; justify-content:center;
   flex-shrink:0;
@@ -364,10 +369,13 @@ footer ul li a:hover{color:var(--gold-light);}
   .foot-grid{grid-template-columns:1fr 1fr; gap:32px 24px;}
 
   .nav-row{
-    padding:12px 16px;
+    padding:12px 8px;
     gap:12px;
   }
-  .brand{gap:10px;}
+  .nav-row > nav.primary{order:3;}
+  .nav-row > .nav-actions{order:2;}
+  .nav-row > .brand{order:1;}
+  .brand{gap:2px;}
   .brand > .brand-mark{
     width:72px;
     height:72px;
@@ -389,6 +397,8 @@ footer ul li a:hover{color:var(--gold-light);}
     background:var(--white);
     box-shadow:-16px 0 40px rgba(0,0,0,0.18);
     overflow-y:auto;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
     overscroll-behavior:contain;
     transform:translateX(105%);
     visibility:hidden;
@@ -401,6 +411,7 @@ footer ul li a:hover{color:var(--gold-light);}
     visibility:visible;
     pointer-events:auto;
   }
+  nav.primary::-webkit-scrollbar{display:none;}
   nav.primary > ul{
     flex-direction:column;
     align-items:stretch;
@@ -414,24 +425,8 @@ footer ul li a:hover{color:var(--gold-light);}
     border-radius:0;
     font-size:16px;
   }
-  .dropdown{
-    position:static;
-    box-shadow:none;
-    border:none;
-    border-radius:0;
-    padding:0;
-    max-height:0;
-    overflow:hidden;
-    opacity:0;
-    visibility:hidden;
-    transform:none;
-    transition:max-height .22s ease, opacity .2s ease, visibility .2s ease;
-  }
-  li.has-dropdown.open .dropdown{
-    max-height:500px;
-    padding:6px 0 6px 14px;
-    opacity:1;
-    visibility:visible;
+  nav.primary li.has-dropdown .dropdown{
+    display:none;
   }
   .hamburger{
     position:relative;
@@ -500,7 +495,7 @@ footer ul li a:hover{color:var(--gold-light);}
     width:64px;
     height:64px;
   }
-  .brand-text{display:none;}
+  .brand-text .name{font-size:11px;}
 }
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important; scroll-behavior:auto !important;}
