@@ -55,9 +55,9 @@ header{
   padding:14px 28px; max-width:1180px; margin:0 auto;
   gap:20px;
 }
-.nav-row > .brand{order:3;}
-.nav-row > nav.primary{order:1;}
-.nav-row > .nav-actions{order:2;}
+.nav-row > .brand{order:1;}
+.nav-row > nav.primary{order:2;}
+.nav-row > .nav-actions{order:3;}
 .brand{display:flex; align-items:center; gap:14px; min-width:0;}
 .brand-mark{
   width:156px; height:156px;
@@ -371,8 +371,8 @@ footer ul li a:hover{color:var(--gold-light);}
     gap:12px;
   }
   .nav-row > nav.primary{order:3;}
-  .nav-row > .nav-actions{order:1;}
-  .nav-row > .brand{order:2;}
+  .nav-row > .nav-actions{order:2;}
+  .nav-row > .brand{order:1;}
   .brand{gap:10px;}
   .brand > .brand-mark{
     width:72px;
