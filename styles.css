@@ -244,7 +244,7 @@ body[data-page="home"] .hero::before{
   background:radial-gradient(ellipse 90% 60% at 50% 100%, rgba(0,0,0,0.5), transparent 70%);
 }
 .foundation-book{position:relative; z-index:2; width:100%;}
-.foundation-book svg{width:100%; max-width:340px;}
+.foundation-book img{width:100%; max-width:520px; max-height:230px; object-fit:contain; object-position:left bottom;}
 .foundation-caption{position:relative; z-index:2; color:#F3E2C4; margin-top:16px;}
 .foundation-caption .eyebrow{font-size:12.5px; letter-spacing:1px; color:#D9B57F; margin-bottom:6px;}
 .foundation-caption h2{color:#fff; font-size:30px; margin-bottom:12px;}
