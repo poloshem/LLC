@@ -9,7 +9,7 @@
   var menuToggle = document.getElementById('menuToggle');
   var nav = document.getElementById('primaryNav');
   var scrim = document.getElementById('navScrim');
-  var mobileNavQuery = window.matchMedia ? window.matchMedia('(max-width: 980px)') : null;
+  var mobileNavQuery = window.matchMedia ? window.matchMedia('(max-width: 1285px)') : null;
 
   function isMobileNavigation() {
     return !mobileNavQuery || mobileNavQuery.matches;
