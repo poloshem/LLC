@@ -426,17 +426,7 @@ footer ul li a:hover{color:var(--gold-light);}
     font-size:16px;
   }
   nav.primary li.has-dropdown .dropdown{
-    position:static;
-    box-shadow:none;
-    border:none;
-    border-radius:0;
-    padding:0;
-    max-height:none;
-    overflow:visible;
-    opacity:1;
-    visibility:visible;
-    transform:none;
-    padding:6px 0 6px 14px;
+    display:none;
   }
   .hamburger{
     position:relative;
