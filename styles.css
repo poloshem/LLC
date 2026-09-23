@@ -52,7 +52,7 @@ header{
 }
 .nav-row{
   display:flex; align-items:center; justify-content:space-between;
-  padding:14px 8px; max-width:1273px; margin:0 auto;
+  padding:8px; max-width:1273px; margin:0 auto;
   gap:20px;
 }
 .nav-row > .brand{order:1;}
@@ -62,11 +62,11 @@ header{
 .brand-text{order:1;}
 .brand-mark{
   order:2;
-  width:156px; height:156px;
+  width:104px; height:104px;
   display:flex; align-items:center; justify-content:center;
   flex-shrink:0;
 }
-.brand .brand-mark img{width:156px; height:156px; object-fit:contain;}
+.brand .brand-mark img{width:104px; height:104px; object-fit:contain;}
 .brand-mark svg{width:22px; height:22px;}
 .brand-text{min-width:0;}
 .brand-text .name{
