@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Donate — Lord's Last Call Church</title>
+  <meta name="description" content="Support the work of Lord's Last Call Church. Give securely through M-Pesa Paybill 522533 using account number 8147785.">
+  <link rel="canonical" href="https://poloshem.github.io/LLC/donation.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lord's Last Call Church">
+  <meta property="og:title" content="Donate — Lord's Last Call Church">
+  <meta property="og:description" content="Support the work of Lord's Last Call Church through M-Pesa Paybill 522533, account number 8147785.">
+  <meta property="og:url" content="https://poloshem.github.io/LLC/donation.html">
+  <meta property="og:image" content="https://poloshem.github.io/LLC/images/church.jpeg">
+  <meta property="og:image:alt" content="Lord's Last Call Church">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Donate — Lord's Last Call Church">
+  <meta name="twitter:description" content="Support the work of Lord's Last Call Church through M-Pesa Paybill 522533, account number 8147785.">
+  <meta name="twitter:image" content="https://poloshem.github.io/LLC/images/church.jpeg">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .donation-page {
+      min-height: 100vh;
+      background: #f7f4ed;
+      color: #263238;
+      font-family: "Source Sans 3", sans-serif;
+    }
+    .donation-header {
+      align-items: center;
+      background: #fff;
+      border-bottom: 1px solid #e7e0d3;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem max(5vw, calc((100vw - 1120px) / 2));
+    }
+    .donation-brand {
+      align-items: center;
+      color: #263238;
+      display: flex;
+      font-weight: 700;
+      gap: .75rem;
+      text-decoration: none;
+    }
+    .donation-brand img { height: 46px; width: 46px; }
+    .donation-brand span { line-height: 1.25; }
+    .donation-home {
+      color: #24523b;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .donation-main {
+      margin: 0 auto;
+      max-width: 760px;
+      padding: clamp(3rem, 8vw, 6rem) 1.25rem;
+    }
+    .donation-intro { margin: 0 auto 2rem; max-width: 620px; text-align: center; }
+    .donation-kicker {
+      color: #6e5a38;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .donation-intro h1 {
+      color: #263d32;
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(2.25rem, 6vw, 3.5rem);
+      line-height: 1.1;
+      margin: .65rem 0 1rem;
+    }
+    .donation-intro p { color: #5e655f; font-size: 1.1rem; line-height: 1.65; margin: 0; }
+    .donation-card {
+      background: #fff;
+      border: 1px solid #e5dfd2;
+      border-radius: 20px;
+      box-shadow: 0 18px 55px rgba(38, 61, 50, .09);
+      margin: 0 auto;
+      max-width: 560px;
+      overflow: hidden;
+    }
+    .donation-card-head {
+      align-items: center;
+      background: #f4f8f4;
+      border-bottom: 1px solid #e5eee6;
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .donation-card-head img { display: block; height: auto; max-width: 250px; width: 70%; }
+    .donation-details { padding: clamp(1.25rem, 5vw, 2.25rem); }
+    .donation-method {
+      color: #67716a;
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      margin: 0 0 1.25rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .donation-number {
+      background: #fbfaf7;
+      border: 1px solid #e7e0d3;
+      border-radius: 12px;
+      margin: .75rem 0;
+      padding: 1rem 1.25rem;
+    }
+    .donation-number dt { color: #68716b; font-size: .95rem; }
+    .donation-number dd {
+      color: #263d32;
+      font-size: clamp(1.7rem, 7vw, 2.25rem);
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      letter-spacing: .04em;
+      margin: .2rem 0 0;
+    }
+    .donation-steps { margin: 1.75rem 0 0; padding-left: 1.4rem; }
+    .donation-steps li { color: #505b53; line-height: 1.55; margin: .55rem 0; padding-left: .2rem; }
+    .donation-thanks { color: #24523b; font-weight: 600; margin: 1.5rem 0 0; text-align: center; }
+    .donation-footer {
+      color: #69716b;
+      font-size: .9rem;
+      padding: 0 1.25rem 2rem;
+      text-align: center;
+    }
+    .donation-footer a { color: #24523b; font-weight: 600; }
+    @media (max-width: 520px) {
+      .donation-header { padding: .8rem 1rem; }
+      .donation-brand { font-size: .9rem; }
+      .donation-brand img { height: 38px; width: 38px; }
+    }
+  </style>
+</head>
+<body class="donation-page">
+  <header class="donation-header">
+    <a class="donation-brand" href="index.html">
+      <img src="logo.png" alt="">
+      <span>Lord's Last Call Church</span>
+    </a>
+    <a class="donation-home" href="index.html">Back to Home</a>
+  </header>
+  <main class="donation-main">
+    <section class="donation-intro" aria-labelledby="donation-title">
+      <span class="donation-kicker">Faith · Fellowship · Service · Mission</span>
+      <h1 id="donation-title">Support the work of the Church</h1>
+      <p>Your generosity helps Lord's Last Call Church share the Gospel, serve our communities, and support our ministries. Give using M-Pesa Paybill:</p>
+    </section>
+    <section class="donation-card" aria-label="M-Pesa donation details">
+      <div class="donation-card-head">
+        <img src="images/mpesa-logo.svg" alt="M-Pesa">
+      </div>
+      <div class="donation-details">
+        <p class="donation-method">Pay with M-Pesa</p>
+        <dl>
+          <div class="donation-number">
+            <dt>Paybill number</dt>
+            <dd>522533</dd>
+          </div>
+          <div class="donation-number">
+            <dt>Account number</dt>
+            <dd>8147785</dd>
+          </div>
+        </dl>
+        <ol class="donation-steps">
+          <li>Open M-Pesa and choose <strong>Lipa na M-Pesa</strong>.</li>
+          <li>Select <strong>Pay Bill</strong>.</li>
+          <li>Enter business number <strong>522533</strong> and account number <strong>8147785</strong>.</li>
+          <li>Enter the amount, confirm the details, and complete with your M-Pesa PIN.</li>
+        </ol>
+        <p class="donation-thanks">Thank you for supporting our church and community.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="donation-footer">
+    <a href="index.html">Lord's Last Call Church</a> · <a href="privacy.html">Privacy Policy</a>
+  </footer>
+</body>
+</html>
