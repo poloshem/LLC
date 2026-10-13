@@ -578,6 +578,7 @@ footer ul li a:hover{color:var(--gold-light);}
 .card{background:var(--white); border:1px solid var(--line); border-radius:8px; padding:28px; box-shadow:0 10px 26px rgba(14,36,56,0.06);}
 .card h3{font-size:21px; margin-bottom:12px;}
 .card p:last-child{margin-bottom:0;}
+.card .link-arrow{margin-top:16px;}
 .card.gold{border-top:4px solid var(--gold);}
 .card.green{border-top:4px solid var(--green);}
 .card.blue{border-top:4px solid var(--blue);}
