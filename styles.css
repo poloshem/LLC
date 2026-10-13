@@ -194,6 +194,7 @@ body[data-page="home"] .hero::after{
   content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
   background:linear-gradient(90deg, rgba(10,23,33,.82) 0%, rgba(10,23,33,.64) 42%, rgba(10,23,33,.2) 100%);
 }
+.page-hero .hero-cross{display:none !important;}
 .about-hero{--hero-image:url("images/about-hero.webp");}
 .beliefs-hero{--hero-image:url("images/beliefs-hero.webp");}
 .ministries-hero{--hero-image:url("images/ministries-hero.webp");}
@@ -215,10 +216,6 @@ body[data-page="home"] .hero::after{
   background: radial-gradient(ellipse 70% 100% at 30% 100%, rgba(22,38,33,0.85), transparent 60%),
               radial-gradient(ellipse 60% 100% at 85% 100%, rgba(22,38,33,0.8), transparent 55%);
 }
-.hero-cross{
-  position:absolute; right:8%; bottom:10%; width:60px; height:210px; opacity:0.92;
-}
-.hero-cross svg{width:100%; height:100%; filter:drop-shadow(0 8px 18px rgba(0,0,0,0.35));}
 .hero-vignette{position:absolute; inset:0; background:radial-gradient(ellipse at 30% 30%, rgba(14,20,30,0.05), rgba(10,14,20,0.35) 100%);}
 .hero-content{position:relative; z-index:2; max-width:640px; padding:70px 0 90px;}
 .hero-eyebrow{color:#F3E2C4; font-size:15px; font-weight:600; margin-bottom:10px; letter-spacing:0.3px;}
