@@ -149,6 +149,7 @@
     { url: 'beliefs.html', fallbackTitle: 'Our Beliefs' },
     { url: 'ministries.html', fallbackTitle: 'Ministries' },
     { url: 'news.html', fallbackTitle: 'News & Events' },
+    { url: 'churches.htm', fallbackTitle: 'Our Churches' },
     { url: 'gallery.html', fallbackTitle: 'Gallery' },
     { url: 'contact.html', fallbackTitle: 'Contact Us' },
     { url: 'privacy.html', fallbackTitle: 'Privacy Policy' }
