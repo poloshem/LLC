@@ -198,6 +198,10 @@ body[data-page="home"] .hero::after{
 .about-hero{--hero-image:url("images/about-hero.webp");}
 .beliefs-hero{--hero-image:url("images/beliefs-hero.webp");}
 .ministries-hero{--hero-image:url("images/ministries-hero.webp");}
+@media (min-width: 981px){
+  .ministries-hero::before{background-position:center top;}
+  body[data-page="home"] .hero-background-image{object-position:center top;}
+}
 .news-hero{--hero-image:url("images/news-hero.webp");}
 .gallery-hero{--hero-image:url("images/gallery-hero.webp");}
 .contact-hero{--hero-image:url("images/contact-hero.webp");}
