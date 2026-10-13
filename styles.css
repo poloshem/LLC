@@ -180,6 +180,27 @@ body[data-page="home"] .hero::after{
   content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
   background:linear-gradient(90deg, rgba(10,23,33,.82) 0%, rgba(10,23,33,.64) 42%, rgba(10,23,33,.2) 100%);
 }
+.page-hero{
+  --hero-image:none;
+  isolation:isolate;
+}
+.page-hero::before{
+  content:""; position:absolute; inset:0; z-index:0;
+  background-image:var(--hero-image, none);
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+  filter:saturate(0.9) contrast(1.08);
+}
+.page-hero::after{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(90deg, rgba(10,23,33,.82) 0%, rgba(10,23,33,.64) 42%, rgba(10,23,33,.2) 100%);
+}
+.about-hero{--hero-image:url("images/about-hero.webp");}
+.beliefs-hero{--hero-image:url("images/beliefs-hero.webp");}
+.ministries-hero{--hero-image:url("images/ministries-hero.webp");}
+.news-hero{--hero-image:url("images/news-hero.webp");}
+.gallery-hero{--hero-image:url("images/gallery-hero.webp");}
+.contact-hero{--hero-image:url("images/contact-hero.webp");}
+.history-hero{--hero-image:url("images/history-hero.webp");}
 .hero-sun{
   position:absolute; right:14%; top:38%; width:220px; height:220px; border-radius:50%;
   background:radial-gradient(circle, rgba(255,244,214,0.95) 0%, rgba(255,214,140,0.55) 45%, rgba(255,214,140,0) 72%);
