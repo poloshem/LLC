@@ -98,11 +98,14 @@
       height: 2.25rem; justify-content: center; width: 2.25rem;
     }
     .foot-social a:hover { filter: brightness(.88); }
-    .foot-social a[href^="mailto:"] { background: #c29a50; }
-    .foot-social a[href^="tel:"] { background: #315d7a; }
     .foot-social a[href^="https://wa.me/"] { background: #25D366; }
-    .foot-social .social-placeholder[aria-label^="Facebook"] { background: #1877F2; opacity: .78; }
-    .foot-social .social-placeholder[aria-label^="YouTube"] { background: #FF0033; opacity: .78; }
+    .foot-social .social-placeholder {
+      background-color: transparent; background-position: center; background-repeat: no-repeat;
+      background-size: contain; height: 2.25rem; width: 2.25rem;
+    }
+    .foot-social .social-placeholder[aria-label^="Facebook"] { background-image: url("images/facebook-icon.png"); }
+    .foot-social .social-placeholder[aria-label^="YouTube"] { background-image: url("images/youtube-icon.png"); }
+    .foot-social .social-placeholder svg { display: none; }
     .foot-social svg { height: 1rem; width: 1rem; }
   </style>
 </head>
