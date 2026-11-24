@@ -340,6 +340,7 @@ body[data-page="home"] .hero::after{
 }
 .news-date .d{font-size:19px; font-weight:800; color:var(--navy); line-height:1;}
 .news-date .m{font-size:10.5px; color:var(--gold); font-weight:700; letter-spacing:0.5px;}
+.news-date .y{display:block; margin-top:2px; color:var(--ink-soft); font-size:9px; font-weight:600;}
 .news-item h4{font-size:15px; margin-bottom:4px; color:var(--navy); font-family:'Fraunces',serif; font-weight:600;}
 .news-item p{font-size:13.5px;}
 
