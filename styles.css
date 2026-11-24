@@ -583,6 +583,20 @@ footer ul li a:hover{color:var(--gold-light);}
 .card.green{border-top:4px solid var(--green);}
 .card.blue{border-top:4px solid var(--blue);}
 .card.purple{border-top:4px solid var(--purple);}
+.church-search{max-width:760px; margin:0 auto 38px;}
+.church-search label{display:block; margin-bottom:8px; color:var(--navy); font-weight:700;}
+.church-search input{width:100%; padding:13px 15px; border:1px solid var(--line); border-radius:6px; background:var(--white); font:inherit;}
+.church-search input:focus{outline:2px solid var(--gold); outline-offset:2px;}
+.church-search-status{min-height:1.5em; margin:9px 0 0; color:var(--ink-soft); font-size:14px;}
+.church-directory{display:grid; gap:30px;}
+.church-area h3{margin-bottom:14px; padding-bottom:9px; border-bottom:2px solid var(--line); color:var(--navy); font-family:'Fraunces',serif; font-size:24px;}
+.church-list{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:0; padding:0; list-style:none;}
+.church-entry{min-width:0; padding:16px 18px; border:1px solid var(--line); border-radius:7px; background:var(--white); box-shadow:0 6px 18px rgba(14,36,56,0.045);}
+.church-entry h4{margin:0 0 8px; color:var(--navy); font-size:16px;}
+.church-entry p{margin:0; color:var(--ink-soft); font-size:13px; overflow-wrap:anywhere;}
+.church-entry a{color:var(--blue); font-weight:600; text-decoration:underline; text-underline-offset:2px;}
+.church-entry[hidden],.church-area[hidden],.church-no-results[hidden]{display:none;}
+.church-no-results{margin:0; padding:20px; border-radius:6px; background:var(--white); color:var(--ink-soft); text-align:center;}
 .leadership-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
 .leader-card{text-align:center; background:var(--white); border:1px solid var(--line); border-radius:8px; padding:28px 18px;}
 .leader-avatar{width:74px; height:74px; margin:0 auto 16px; border-radius:50%; background:var(--paper); border:2px solid var(--gold); display:flex; align-items:center; justify-content:center; color:var(--navy); font-family:'Fraunces',serif; font-size:25px; font-weight:700;}
@@ -651,6 +665,7 @@ footer ul li a:hover{color:var(--gold-light);}
 .page-cta .btn{margin:0 6px;}
 @media (max-width: 980px){
   .card-grid{grid-template-columns:1fr 1fr;}
+  .church-list{grid-template-columns:repeat(2,minmax(0,1fr));}
   .leadership-grid{grid-template-columns:repeat(2,1fr);}
   .statement-list{grid-template-columns:1fr;}
   .ministry-detail{grid-template-columns:1fr;}
@@ -660,6 +675,7 @@ footer ul li a:hover{color:var(--gold-light);}
   .page-hero{min-height:340px;}
   .hero.compact{min-height:320px;}
   .split,.card-grid,.leadership-grid,.commandments,.gallery-grid{grid-template-columns:1fr;}
+  .church-list{grid-template-columns:1fr;}
   .gallery-item img{height:220px;}
   .gallery-lightbox{padding:72px 52px 54px;}
   .gallery-lightbox-nav{width:40px; height:52px;}

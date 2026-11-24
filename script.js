@@ -611,6 +611,39 @@
     });
   }
 
+  var churchSearch = document.getElementById('churchSearch');
+  var churchSearchStatus = document.getElementById('churchSearchStatus');
+  var churchNoResults = document.getElementById('churchNoResults');
+  var churchEntries = Array.prototype.slice.call(document.querySelectorAll('.church-entry'));
+  if (churchSearch && churchSearchStatus && churchNoResults && churchEntries.length) {
+    churchSearch.addEventListener('input', function () {
+      var query = churchSearch.value.toLowerCase().replace(/[^a-z0-9]/g, '');
+      var visibleCount = 0;
+
+      churchEntries.forEach(function (entry) {
+        var area = entry.closest('.church-area');
+        var searchableText = (entry.textContent + ' ' + (area ? area.querySelector('h3').textContent : ''))
+          .toLowerCase()
+          .replace(/[^a-z0-9]/g, '');
+        var isMatch = !query || searchableText.indexOf(query) !== -1;
+
+        entry.hidden = !isMatch;
+        if (isMatch) {
+          visibleCount += 1;
+        }
+      });
+
+      document.querySelectorAll('.church-area').forEach(function (area) {
+        area.hidden = !area.querySelector('.church-entry:not([hidden])');
+      });
+
+      churchNoResults.hidden = visibleCount !== 0;
+      churchSearchStatus.textContent = query
+        ? 'Showing ' + visibleCount + ' of ' + churchEntries.length + ' churches.'
+        : 'Showing all ' + churchEntries.length + ' churches.';
+    });
+  }
+
   function setActiveNavigation() {
     var currentPage = document.body.getAttribute('data-page');
     var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav.primary > ul > li'));
