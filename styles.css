@@ -383,6 +383,15 @@ footer ul li a:hover{color:var(--gold-light);}
   display:flex; align-items:center; justify-content:center; transition:background .15s;
 }
 .foot-social a:hover{background:var(--gold);}
+.foot-social a[href*="wa.me"]{background:#25D366;}
+.foot-social a[href*="wa.me"]:hover{background:#25D366; filter:brightness(.88);}
+.foot-social .social-placeholder{
+  display:block; width:34px; height:34px; flex:0 0 34px;
+  background-color:transparent; background-position:center; background-repeat:no-repeat; background-size:contain;
+}
+.foot-social .social-placeholder[aria-label^="Facebook"]{background-image:url("images/facebook-icon.png");}
+.foot-social .social-placeholder[aria-label^="YouTube"]{background-image:url("images/youtube-icon.png");}
+.foot-social .social-placeholder svg{display:none;}
 .foot-social svg{width:15px; height:15px; color:#fff;}
 .verse-box{font-style:italic; font-size:14px; color:#DCE3E8; line-height:1.6; border-left:3px solid var(--gold); padding-left:14px;}
 .verse-box .ref{display:block; margin-top:10px; font-style:normal; color:var(--gold-light); font-weight:600; font-size:12.5px;}
