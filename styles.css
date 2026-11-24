@@ -609,6 +609,9 @@ footer ul li a:hover{color:var(--gold-light);}
 .event-date .m{display:block; margin-top:3px; color:var(--gold); font-size:11px; font-weight:700; letter-spacing:1px;}
 .event-card h3{font-size:20px; margin-bottom:7px;}
 .event-card p{font-size:14.5px; margin-bottom:0;}
+.event-image{display:block; width:100%; max-height:220px; margin-top:14px; border-radius:6px; object-fit:cover;}
+.cms-status:empty{display:none;}
+.cms-status{margin:-20px auto 24px; text-align:center; color:var(--ink-soft); font-size:14px;}
 .gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
 .gallery-item{margin:0; position:relative; overflow:hidden; border-radius:8px; background:var(--navy-deep);}
 .gallery-item{cursor:zoom-in;}
