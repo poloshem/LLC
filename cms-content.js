@@ -24,7 +24,7 @@
       }
       return response.json();
     }).then(function (data) {
-      if (!data || !Array.isArray(data.result) && data.result !== null) {
+      if (!data || data.result !== null && typeof data.result !== 'object') {
         throw new Error('Sanity returned an invalid content response.');
       }
       return data.result;
@@ -103,7 +103,8 @@
     }
     return {
       day: value.slice(8, 10),
-      month: new Date(value + 'T00:00:00').toLocaleString('en', {month: 'short'}).toUpperCase()
+      month: new Date(value + 'T00:00:00').toLocaleString('en', {month: 'short'}).toUpperCase(),
+      year: value.slice(0, 4)
     };
   }
 
@@ -114,10 +115,87 @@
       ('0' + date.getDate()).slice(-2);
   }
 
-  function loadNews() {
-    if (!eventList || !newsStatus) {
-      return Promise.resolve();
+  function setUpcomingEventIndicator(hasUpcomingEvent, targetSlug) {
+    document.querySelectorAll('nav.primary li[data-page="news"]').forEach(function (item) {
+      var link = item.querySelector('a.top-link');
+      if (!link) {
+        return;
+      }
+
+      link.href = targetSlug
+        ? 'news.html#' + encodeURIComponent(targetSlug)
+        : 'news.html';
+      item.classList.toggle('has-upcoming-event', hasUpcomingEvent);
+      var badge = link.querySelector('.upcoming-event-badge');
+      if (hasUpcomingEvent && !badge) {
+        badge = document.createElement('span');
+        badge.className = 'upcoming-event-badge';
+        badge.textContent = 'Upcoming';
+        link.appendChild(badge);
+      } else if (!hasUpcomingEvent && badge) {
+        badge.remove();
+      }
+    });
+  }
+
+  function sortStaticEvents() {
+    if (!eventList) {
+      return;
     }
+
+    var events = Array.prototype.slice.call(eventList.querySelectorAll(':scope > .event-card'));
+    events.sort(function (a, b) {
+      return (a.getAttribute('data-event-date') || '')
+        .localeCompare(b.getAttribute('data-event-date') || '');
+    });
+    events.forEach(function (event) {
+      eventList.appendChild(event);
+    });
+  }
+
+  function loadNews() {
+    var upcomingEvents = Array.isArray(config.upcomingEvents)
+      ? config.upcomingEvents.slice()
+      : [];
+    Array.prototype.forEach.call(
+      document.querySelectorAll('.event-list > .event-card[data-event-date][id]'),
+      function (event) {
+        upcomingEvents.push({
+          date: event.getAttribute('data-event-date'),
+          slug: event.id
+        });
+      }
+    );
+
+    function refreshUpcomingEventIndicator() {
+      var currentDate = localDate();
+      var upcomingEvent = upcomingEvents
+        .filter(function (event) {
+          return event && typeof event.date === 'string' &&
+            typeof event.slug === 'string' && event.date >= currentDate;
+        })
+        .sort(function (a, b) {
+          return a.date.localeCompare(b.date);
+        })[0];
+      var hasFutureEvent = upcomingEvents.some(function (event) {
+        return event && typeof event.date === 'string' && event.date > currentDate;
+      });
+
+      setUpcomingEventIndicator(hasFutureEvent, upcomingEvent && upcomingEvent.slug);
+    }
+
+    function checkUpcomingEventAtMidnight() {
+      var now = new Date();
+      var midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+      window.setTimeout(function () {
+        refreshUpcomingEventIndicator();
+        checkUpcomingEventAtMidnight();
+      }, midnight.getTime() - now.getTime() + 50);
+    }
+
+    sortStaticEvents();
+    refreshUpcomingEventIndicator();
+    checkUpcomingEventAtMidnight();
 
     return fetchQuery(
       '*[_type == "siteSettings" && _id == "siteSettings"][0]{newsEnabled}'
@@ -127,47 +205,58 @@
       }
 
       return fetchQuery(
-        '*[_type == "newsEvent" && !coalesce(archived, false)] {contentType, title, slug, summary, eventStart, eventEnd, publishedAt, "imageUrl": image.asset->url}'
+        '*[_type == "newsEvent" && !coalesce(archived, false)] {contentType, title, slug, summary, eventStart, publishedAt, "imageUrl": image.asset->url}'
       ).then(function (items) {
-        var today = localDate();
-        var visibleItems = items.filter(function (item) {
-          return item && (item.contentType !== 'event' || !item.eventEnd || item.eventEnd >= today);
-        });
+        items = Array.isArray(items) ? items.filter(Boolean) : [];
 
-        if (!visibleItems.length) {
-          setStatus(newsStatus, 'No published news or events are available; showing the saved updates.');
+        if (!items.length) {
+          if (eventList && newsStatus) {
+            setStatus(newsStatus, 'No published news or events are available; showing the saved updates.');
+          }
           return;
         }
 
-        visibleItems.sort(function (a, b) {
+        upcomingEvents = items
+          .filter(function (item) {
+            return item.contentType === 'event' &&
+              typeof item.eventStart === 'string' &&
+              item.slug && typeof item.slug.current === 'string';
+          })
+          .map(function (item) {
+            return {
+              date: item.eventStart.slice(0, 10),
+              slug: item.slug.current
+            };
+          });
+        refreshUpcomingEventIndicator();
+
+        if (!eventList || !newsStatus) {
+          return;
+        }
+
+        items.sort(function (a, b) {
           var dateA = a.contentType === 'event' ? a.eventStart : a.publishedAt;
           var dateB = b.contentType === 'event' ? b.eventStart : b.publishedAt;
-          var todayDate = localDate();
-          var upcomingA = dateA && dateA >= todayDate;
-          var upcomingB = dateB && dateB >= todayDate;
-
-          if (upcomingA !== upcomingB) {
-            return upcomingA ? -1 : 1;
-          }
-          if (upcomingA) {
-            return dateA.localeCompare(dateB);
-          }
-          return (dateB || '').localeCompare(dateA || '');
+          return (dateA || '').localeCompare(dateB || '');
         });
 
         var fragment = document.createDocumentFragment();
-        visibleItems.forEach(function (item) {
+        items.forEach(function (item) {
           if (!item.title || !item.summary) {
             return;
           }
 
           var article = document.createElement('article');
           article.className = 'event-card';
+          var eventDate = item.contentType === 'event' ? item.eventStart : item.publishedAt;
+          if (eventDate) {
+            article.setAttribute('data-event-date', eventDate);
+          }
           if (item.slug && item.slug.current) {
             article.id = item.slug.current;
           }
 
-          var date = formatDate(item.contentType === 'event' ? item.eventStart : item.publishedAt);
+          var date = formatDate(eventDate);
           if (date) {
             var dateBlock = document.createElement('div');
             dateBlock.className = 'event-date';
@@ -177,8 +266,12 @@
             var month = document.createElement('span');
             month.className = 'm';
             month.textContent = date.month;
+            var year = document.createElement('span');
+            year.className = 'y';
+            year.textContent = date.year;
             dateBlock.appendChild(day);
             dateBlock.appendChild(month);
+            dateBlock.appendChild(year);
             article.appendChild(dateBlock);
           }
 
