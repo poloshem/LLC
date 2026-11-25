@@ -19,7 +19,7 @@
   padding-bottom: env(safe-area-inset-bottom,0px);
 }
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth; scroll-padding-top: calc(84px + env(safe-area-inset-top,0px));}
+html{scroll-behavior:smooth; scroll-padding-top: calc(84px + env(safe-area-inset-top,0px)); overflow-x:clip;}
 body{
   margin:0;
   font-family:'Source Sans 3', sans-serif;
@@ -430,7 +430,9 @@ footer ul li a:hover{color:var(--gold-light);}
   .about-news-grid{grid-template-columns:1fr; gap:38px;}
   .contact-grid{grid-template-columns:1fr; gap:34px;}
   .foot-grid{grid-template-columns:1fr 1fr; gap:32px 24px;}
+}
 
+@media (max-width: 1640px){
   .nav-row{
     padding:12px 8px;
     gap:12px;
