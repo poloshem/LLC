@@ -451,7 +451,9 @@ footer ul li a:hover{color:var(--gold-light);}
   }
   .brand-text .name{font-size:14px;}
   .brand-text .tag{display:none;}
+}
 
+@media (max-width: 1285px){
   nav.primary{
     position:absolute;
     top:0;
